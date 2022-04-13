@@ -31,7 +31,7 @@ category: [ articles, getting-started ]
 Try doubling `BLOCK_BUFFER_SIZE` to see if the problem goes away.
 
 ### No LCD / SD on ReARM?
-As seen in this [Chris's Basement video](//youtube.com/watch?v=H-c8UTg-EMU), the RRD display doesn't always work on first install. It didn't even light up. A custom adapter is needed with the ReARM. See [this issue](//github.com/MarlinFirmware/Marlin/pull/7390#issuecomment-320371735), and [this issue](//github.com/MarlinFirmware/Marlin/issues/11927#issuecomment-441435170), and [this page](//github.com/wolfmanjm/universal-panel-adapter).
+As seen in this [Chris's Basement video](//youtu.be/H-c8UTg-EMU), the RRD display doesn't always work on first install. It didn't even light up. A custom adapter is needed with the ReARM. See [this issue](//github.com/MarlinFirmware/Marlin/pull/7390#issuecomment-320371735), and [this issue](//github.com/MarlinFirmware/Marlin/issues/11927#issuecomment-441435170), and [this page](//github.com/wolfmanjm/universal-panel-adapter).
 
 ### FTDI USB Bandwidth
 At 115K baud use 167 latency, 192 USB block request. As one goes up the other goes down.
@@ -42,7 +42,7 @@ This is a hardware issue due to the connected beeper pin being HIGH when the boa
 ### Random Halting
 An under-powered PSU combined with heaters and high speed moves can lead to a frozen board. No kill, no watchdog, heaters stuck on. See [#17202](//github.com/MarlinFirmware/Marlin/issues/17202). To test for this:
 - To test for this, enable the bed and extruder heaters and print at high speed to see if a hard freeze occurs. Try disabling heaters and/or slower printing to see if the problem goes away.
-- Read the input voltage from PSU with a meter during fast moves. If you see a drop too far below your expected voltage (e.g., 12V or 24V) this indicates a problem.
+- Read the input voltage from PSU with a meter during fast moves. If you see a drop too far below your expected voltage (_e.g.,_ 12V or 24V) this indicates a problem.
 
 ### EEPROM Errors
 
@@ -86,7 +86,7 @@ These tips are collected from various reports we have received. See [Trinamic tr
 - **SPI conflict with the SD card?** Solutions vary.
 - **E Stepper won't move when using Linear Advance with TMC drivers?**
   - "I ended up using the drivers in legacy mode and setting them to SpreadCycle using the OTP (One Time Programmer). Unfortunately trying to set individual drivers to SpreadCycle via UART by enabling HybridThreshhold and setting the threshold to 0 for the respective axes did not work." See [#11825](//github.com/MarlinFirmware/Marlin/issues/11825).
-- **Loud / grinding TMC2208?** Increase the current to ~1500mA and lower the Hybrid Threshold.
+- **Loud / grinding TMC2208?** Increase the current to \~1500mA and lower the Hybrid Threshold.
 - **Unreliable printing, shifting layers?** Make sure the 'rsense' value is configured according to recommendations. See [#9368](//github.com/MarlinFirmware/Marlin/issues/9368).
 - **TMC2208** uses **SoftwareSerial**, and this conflicts with **Endstop Interrupts**. Disable Endstop Interrupts to proceed.
 - **Should I use `SOFTWARE_DRIVER_ENABLE`?** Not unless required by the hardware. See [#13326](//github.com/MarlinFirmware/Marlin/issues/13326).
